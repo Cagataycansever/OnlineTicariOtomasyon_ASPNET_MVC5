@@ -1,0 +1,40 @@
+﻿@using TicariOtomasyon.Models.Siniflar
+@model List<Departman>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="mb-0" style="font-weight:bold;text-align:center;">DEPARTMAN LİSTESİ </p>
+    </div>
+</div>
+
+<table class="table table-condensed table-hover" style="margin-top:30px;">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">DEPARMAN ADI</th>
+            <th scope="col">SİL</th>
+            <th scope="col">GÜNCELLE</th>
+            <th scope="col">DETAYLAR</th>
+        </tr>
+    </thead>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <th scope="row">@k.DepartmanId</th>
+            <td>@k.DepartmanAdi</td>
+            <td><a href="/Departman/DepartmanSil/@k.DepartmanId" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a></td>
+            <td><a href="/Departman/DepartmanGetir/@k.DepartmanId" class="btn btn-outline-success"><i class="fas fa-sync"></i></a></td>
+            <td><a href="/Departman/DepartmanDetay/@k.DepartmanId" class="btn btn-outline-blueviolet"><i class="fas fa-info-circle"></i></a></td>
+        </tr>
+
+    }
+
+</table>
+
+<a href="/Departman/DepartmanEkle" class="btn btn-outline-info">Yeni Departman Ekle</a>
+

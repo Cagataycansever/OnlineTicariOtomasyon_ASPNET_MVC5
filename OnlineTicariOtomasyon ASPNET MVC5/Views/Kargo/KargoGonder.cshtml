@@ -1,0 +1,32 @@
+﻿@model TicariOtomasyon.Models.Siniflar.KargoDetay
+@{
+    ViewBag.Title = "KargoGonder";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="mb-0" style="font-weight:bold;text-align:center;">YENİ KARGO GÖNDER </p>
+    </div>
+</div>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.TakipKodu)
+    <input class="form-control" type="text" value="@ViewBag.tkodu" name="TakipKodu" readonly/>
+    <br />
+    @Html.LabelFor(x => x.Personel)
+    @Html.DropDownListFor(x => x.Personel, (List<SelectListItem>)ViewBag.personel, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Alıcı)
+    @Html.DropDownListFor(x => x.Alıcı, (List<SelectListItem>)ViewBag.cari, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tarih)
+    <input class="form-control" type="date" name="Tarih" />
+    <br />
+    @Html.LabelFor(x => x.Aciklama)
+    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Gönder</button>
+
+</form>

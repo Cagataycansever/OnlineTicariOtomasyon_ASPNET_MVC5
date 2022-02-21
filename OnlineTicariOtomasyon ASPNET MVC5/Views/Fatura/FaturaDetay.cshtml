@@ -1,0 +1,38 @@
+﻿@using TicariOtomasyon.Models.Siniflar
+@model List<FaturaKalem>
+@{
+    ViewBag.Title = "FaturaDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="mb-0" style="font-weight:bold;text-align:center;">FATURA KALEM DETAYLARI </p>
+    </div>
+</div>
+<br />
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">AÇIKLAMA</th>
+            <th scope="col">MİKTAR</th>
+            <th scope="col">BİRİM FİYAT</th>
+            <th scope="col">TUTAR</th>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th scope="row">@x.FaturaKalemId</th>
+            <td>@x.Aciklama</td>
+            <td>@x.Miktar</td>
+            <td>@x.BirimFiyat.ToString("C")</td>
+            <td>@x.Tutar.ToString("C")</td>
+        </tr>
+    }
+</table>
+
+<a href="/Fatura/KalemEkle/" class="btn btn-outline-info">Yeni Kalem Girişi </a>
+

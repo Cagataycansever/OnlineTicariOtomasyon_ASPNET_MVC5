@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<br />
+<h2>Alerts Ekranı</h2>
+<br />
+
+<button id="Btn1" class="btn btn-outline-blueviolet">Buton1</button>
+<button id="Btn2" class="btn btn-outline-blueviolet">Buton2</button>
+<button id="Btn3" class="btn btn-outline-blueviolet">Buton3</button>
+
+<script>
+    $('#Btn1').click(function () {
+        swal("Merhaba");
+    });
+</script>
+<script>
+    $('#Btn2').click(function () {
+        swal("Burası Başlık", "Burası Metin");
+    });
+</script>
+<script>
+    $('#Btn3').click(function () {
+        swal("Kategori Ekleme Başarılı", " ", "success");
+    });
+</script>
+
+

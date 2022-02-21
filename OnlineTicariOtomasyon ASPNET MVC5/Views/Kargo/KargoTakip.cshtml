@@ -1,0 +1,36 @@
+﻿@using TicariOtomasyon.Models.Siniflar
+@model List<KargoTakip>
+@{
+    ViewBag.Title = "KargoTakip";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="mb-0" style="font-weight:bold;text-align:center;">KARGO DURUM </p>
+    </div>
+</div>
+
+<table class="table table-striped" style="margin-top:30px;">
+    <thead>
+        <tr>
+            <th scope="col">TAKİP KODU</th>
+            <th scope="col" >AÇIKLAMA </th>
+            <th scope="col" >TARİH </th>
+
+        </tr>
+    </thead>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td scope="row">@k.TakipKodu</td>
+            <td>@k.Aciklama</td>
+            <td>@k.TarihZaman.ToString("dd'.'MM'.'yyyy HH':'mm")</td>
+
+        </tr>
+
+    }
+
+</table>
+

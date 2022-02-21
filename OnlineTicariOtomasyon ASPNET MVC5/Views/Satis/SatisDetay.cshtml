@@ -1,0 +1,44 @@
+﻿@using TicariOtomasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "SatisDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="mb-0" style="font-weight:bold;text-align:center;">SATIŞ DETAYLARI </p>
+    </div>
+</div>
+<br />
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th scope="col">SATIŞ ID</th>
+            <th scope="col">ÜRÜN</th>
+            <th scope="col">CARİ</th>
+            <th scope="col">PERSONEL</th>
+            <th scope="col">FİYAT</th>
+            <th scope="col">ADET</th>
+            <th scope="col">TOPLAM</th>
+            <th scope="col">TARİH</th>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th scope="row">@x.SatisId</th>
+            <td>@x.Urun.UrunAd</td>
+            <td>@x.Cari.CariAd @x.Cari.CariSoyad</td>
+            <td>@x.Personel.PersonelAd @x.Personel.PersonelSoyad</td>
+            <td>@x.Fiyat.ToString("C")</td>
+            <td>@x.Adet</td>
+            <td>@x.ToplamTutar.ToString("C")</td>
+            <td>@x.Tarih.ToString("dd'.'MM'.'yyyy")</td>
+        </tr>
+    }
+</table>
+<br />
+<button class="btn btn-info"><i class="fas fa-print"></i> Yazdır </button>
+

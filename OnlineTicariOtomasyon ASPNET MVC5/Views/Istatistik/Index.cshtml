@@ -1,0 +1,199 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <br />
+    <div class="card mb-4">
+        <div class="card-body">
+            <p class="mb-0" style="font-weight:bold;text-align:center;">İSTATİSTİKLER</p>
+        </div>
+    </div>
+
+
+    <!-- Custom Theme files -->
+    <link href="~/web2/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <script src="~/web2/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/web2/css/font-awesome.css">
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Metro Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--webfont-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <script src="js/zingchart.min.js"></script>
+    <script src="js/zingchart.jquery.js"></script>
+    <script src="js/jquery.easydropdown.js"></script>
+    <script src="js/jquery.nicescroll.js"></script>
+
+    <link href="css/jqvmap.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+    <script src="~/web2/js/easyResponsiveTabs.js" type="text/javascript"></script>
+
+    <link href="~/web2/css/nav.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="~/web2/js/main.js"></script> <!-- Resource jQuery -->
+    <!-- chart -->
+    <script src="~/web2/js/Chart1.js"></script>
+    <!-- //chart -->
+</head>
+<body>
+    <div class="total-content">
+        <div class="list_of_members">
+            <div class="sales" style="background-color:#1abc9c">
+                <div class="icon-text">
+                    <h3>@ViewBag.caristats</h3>
+                    <p>TOPLAM CARİ</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="new-users" style="background-color:#2ecc71">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.urunstats</h3>
+                    <p>TOPLAM ÜRÜN</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="background-color:#3498db">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.personelstats</h3>
+                    <p>TOPLAM PERSONEL</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="visitors" style="background-color:#9b59b6">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.kategoristats</h3>
+                    <p>TOPLAM KATEGORİ</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="total-content">
+        <div class="list_of_members">
+            <div class="sales" style="background-color:#16a085">
+                <div class="icon-text">
+                    <h3>@ViewBag.stokstats</h3>
+                    <p>TOPLAM STOK</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="new-users" style="background-color:#27ae60">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.markastats</h3>
+                    <p>TOPLAM MARKA</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="background-color:#2980b9">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.kritikstats</h3>
+                    <p>KRİTİK SEVİYE</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="visitors" style="background-color:#8e44ad">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.maxstats</h3>
+                    <p>MAX FİYATLI ÜRÜN</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="total-content">
+        <div class="list_of_members">
+            <div class="sales" style="background-color:#f1c40f">
+                <div class="icon-text">
+                    <h3>@ViewBag.minstats</h3>
+                    <p>MİN FİYATLI ÜRÜN</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="new-users" style="background-color:#e67e22">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.maxmarkastats</h3>
+                    <p>MAX MARKA</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="background-color:#e74c3c">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.buzdolabistats</h3>
+                    <p>BUZDOLABI SAYISI</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="visitors" style="background-color:#95a5a6">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.laptopstats</h3>
+                    <p>LAPTOP SAYISI</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="total-content">
+        <div class="list_of_members">
+            <div class="sales" style="background-color:#f39c12">
+                <div class="icon-text">
+                    <h3>@ViewBag.cokstnstats</h3>
+                    <p>EN ÇOK SATAN</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="new-users" style="background-color:#d35400">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.tkasastats</h3>
+                    <p>KASADAKİ TUTAR</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="background-color:#c0392b">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.bsatisstats</h3>
+                    <p>BUGUNKÜ SATIŞLAR</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="visitors" style="background-color:#7f8c8d">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.bkasastats</h3>
+                    <p>BUGÜNKÜ KASA</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</body>
+</html>
+

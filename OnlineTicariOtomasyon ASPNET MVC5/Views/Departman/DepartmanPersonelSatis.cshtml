@@ -1,0 +1,42 @@
+﻿@using TicariOtomasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "DepartmanPersonelSatis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="mb-0" style="font-weight:bold;text-align:center;">DEPARTMAN PERSONEL SATIŞ DETAYLARI </p>
+    </div>
+</div>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">İlgili Personel : @ViewBag.dpers</li>
+</ol>
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ÜRÜN</th>
+            <th scope="col">CARİ</th>
+            <th scope="col">FİYAT</th>
+            <th scope="col">ADET</th>
+            <th scope="col">TOPLAM</th>
+            <th scope="col">TARİH</th>
+            <th scope="col">YAZDIR</th>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Urun.UrunAd</td>
+            <td>@x.Cari.CariAd @x.Cari.CariSoyad</td>
+            <td>@x.Fiyat.ToString("C") </td>
+            <td>@x.Adet</td>
+            <td>@x.ToplamTutar.ToString("C")</td>
+            <td>@x.Tarih.ToString("dd'.'MM'.'yyyy")</td>
+            <td><a href="#" class="btn btn-outline-secondary"><i class="fas fa-print"></i> Yazdır</a></td>
+        </tr>
+    }
+</table>

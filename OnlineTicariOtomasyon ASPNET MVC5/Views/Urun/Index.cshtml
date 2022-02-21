@@ -1,0 +1,52 @@
+﻿@using TicariOtomasyon.Models.Siniflar;
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+@using (Html.BeginForm("Index", "Urun", FormMethod.Get))
+{
+    <p>Ürün Adı : @Html.TextBox("p") <input type="submit" value="Ara" /></p>
+}
+<br />
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="mb-0" style="font-weight:bold;text-align:center;">ÜRÜN LİSTESİ </p>
+    </div>
+</div>
+
+<table class="table table-condensed table-hover" style="margin-top:30px;">
+    <thead>
+        <tr>
+            <th scope="col">ÜRÜN</th>
+            <th scope="col">MARKA</th>
+            <th scope="col">STOK</th>
+            <th scope="col">ALIŞ FİYATI</th>
+            <th scope="col">SATIŞ FİYATI</th>
+            <th scope="col">KATEGORİ</th>
+            <th scope="col">SİL</th>
+            <th scope="col">GÜNCELLE</th>
+            <th scope="col">SATIŞ YAP</th>
+        </tr>
+    </thead>
+    @foreach (var u in Model)
+    {
+        <tr>
+            <td>@u.UrunAd</td>
+            <td>@u.Marka</td>
+            <td>@u.Stok</td>
+            <td>@u.AlisFiyat.ToString("C") </td>
+            <td>@u.SatisFiyat.ToString("C") </td>
+            <td>@u.Kategori.KategoriAd</td>
+            <td><a href="/Urun/UrunSil/@u.UrunId" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a></td>
+            <td><a href="/Urun/UrunGetir/@u.UrunId" class="btn btn-outline-success"><i class="fas fa-sync"></i></a></td>
+            <td><a href="/Urun/SatisYap/@u.UrunId" class="btn btn-outline-blueviolet"><i class="fas fa-shopping-cart"></i></a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/Urun/YeniUrun/" class="btn btn-outline-info">Yeni Ürün Ekle</a>
+
+
+

@@ -1,0 +1,46 @@
+﻿@using TicariOtomasyon.Models.Siniflar
+@model List<Cariler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="mb-0" style="font-weight:bold;text-align:center;">CARİ LİSTESİ </p>
+    </div>
+</div>
+
+<table class="table table-condensed table-hover" style="margin-top:30px;">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">CARİ ADI </th>
+        <th scope="col">CARİ SOYADI </th>
+        <th scope="col">ŞEHİR</th>
+        <th scope="col">MAİL</th>
+        <th scope="col">SİL</th>
+        <th scope="col">GÜNCELLE</th>
+        <th scope="col">SATIŞ GEÇMİŞİ</th>
+    </tr>
+    </thead>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <th scope="row">@k.CariId</th>
+            <td>@k.CariAd</td>
+            <td>@k.CariSoyad</td>
+            <td>@k.CariSehir</td>
+            <td>@k.CariMail</td>
+            <td><a href="/Cari/CariSil/@k.CariId" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a></td>
+            <td><a href="/Cari/CariGetir/@k.CariId" class="btn btn-outline-success"><i class="fas fa-sync"></i></a></td>
+            <td><a href="/Cari/SatisGecmisi/@k.CariId" class="btn btn-outline-blueviolet"><i class="fas fa-store-alt"></i></a></td>
+        </tr>
+
+    }
+
+</table>
+
+<a href="/Cari/CariEkle" class="btn btn-outline-info">Yeni Cari Ekle</a>
+

@@ -1,0 +1,62 @@
+﻿@using TicariOtomasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="mb-0" style="font-weight:bold;text-align:center;">SATIŞ LİSTESİ </p>
+    </div>
+</div>
+
+<table id="tblsatis" class="table table-condensed table-hover" style="margin-top:30px;">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">ÜRÜN</th>
+            <th scope="col">MARKA</th>
+            <th scope="col">CARİ</th>
+            <th scope="col">PERSONEL</th>
+            <th scope="col">ADET</th>
+            <th scope="col">FİYAT</th>
+            <th scope="col">TOPLAM TUTAR</th>
+            <th scope="col">TARİH</th>
+            <th scope="col">GÜNCELLE</th>
+            <th scope="col">YAZDIR</th>
+        </tr>
+    </thead>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <th scope="row">@k.SatisId</th>
+            <td>@k.Urun.UrunAd</td>
+            <td>@k.Urun.Marka</td>
+            <td>@k.Cari.CariAd @k.Cari.CariSoyad</td>
+            <td>@k.Personel.PersonelAd @k.Personel.PersonelSoyad</td>
+            <td>@k.Adet</td>
+            <td>@k.Fiyat.ToString("C")</td>
+            <td>@k.ToplamTutar.ToString("C")</td>
+            <td>@k.Tarih.ToString("dd'.'MM'.'yyyy")</td>
+            <td><a href="/Satis/SatisGetir/@k.SatisId" class="btn btn-outline-success"><i class="fas fa-sync"></i></a></td>
+            <td><a href="/Satis/SatisDetay/@k.SatisId" class="btn btn-outline-secondary"><i class="fas fa-print"></i> Yazdır</a></td>
+        </tr>
+
+    }
+    </table>
+
+<br />
+<a href="/Satis/SatisYap" class="btn btn-outline-info">Yeni Satış Yap</a>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js "></script>
+
+<script>
+    $('#tblsatis').dataTable({});
+</script>
+
+

@@ -1,0 +1,21 @@
+﻿@model TicariOtomasyon.Models.Siniflar.Departman
+@{
+    ViewBag.Title = "DepartmanEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="mb-0" style="font-weight:bold;text-align:center;">YENİ DEPARTMAN EKLE </p>
+    </div>
+</div>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.DepartmanAdi)
+    @Html.TextBoxFor(x => x.DepartmanAdi, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+</form>
+

@@ -1,0 +1,78 @@
+﻿@using TicariOtomasyon.Models.Siniflar
+@model List<Faturalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="mb-0" style="font-weight:bold;text-align:center;">FATURA LİSTESİ </p>
+    </div>
+</div>
+
+<table class="table table-condensed table-hover" style="margin-top:30px;">
+    <thead>
+        <tr>
+            <th scope="col">SERİ/SIRA NO</th>
+            <th scope="col">VERGİ DAİRESİ</th>
+            <th scope="col">TARİH</th>
+            <th scope="col">TESLİM EDEN</th>
+            <th scope="col">TESLİM ALAN</th>
+            <th scope="col">TOPLAM TUTAR</th>
+            <th scope="col">GÜNCELLE</th>
+            <th scope="col">DETAYLAR</th>
+            <th scope="col">POP-UP LİSTE</th>
+            <th scope="col">YENİ KALEM</th>
+        </tr>
+    </thead>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            <td>@k.SeriNo/@k.SıraNo</td>
+            <td>@k.VergiDairesi</td>
+            <td>@k.Tarih.ToString("dd'.'MM'.'yyyy") @k.Saat</td>
+            <td>@k.TeslimEden</td>
+            <td>@k.TeslimAlan</td>
+            <td>@k.Toplam.ToString("C") </td>
+            <td><a href="/Fatura/FaturaGetir/@k.FaturaId" class="btn btn-outline-success"><i class="fas fa-sync"></i></a></td>
+            <td><a href="/Fatura/FaturaDetay/@k.FaturaId" class="btn btn-outline-secondary"><i class="fas fa-info-circle"></i></a></td>
+            <td><a href="/Fatura/FaturaDetay/@k.FaturaId" class="btn btn-outline-blueviolet"><i class="fas fa-desktop"></i></a></td>
+            <td><a href="/Fatura/FaturaDetay/@k.FaturaId" class="btn btn-outline-primary"><i class="fas fa-plus"></i></a></td>
+        </tr>
+
+    }
+
+</table>
+
+<a href="/Fatura/FaturaEkle" class="btn btn-outline-info">Yeni Fatura Girişi</a>
+<br /><br />
+<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#Modal1">Pop-up</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><h2 class="modal-title">Fatura Kalemler</h2></div>
+            <div class="modal-body">
+                <table class="table table-condensed table-hover">
+                    <tr>
+                        <td>Seri No</td>
+                        <td>Sıra No</td>
+                        <td>Tutar</td>
+                    </tr>
+                    @foreach(var x in Model) { 
+                    <tr>
+                        <td>@x.SeriNo</td>
+                        <td>@x.SıraNo</td>
+                        <td>@x.Toplam</td>
+                    </tr>
+                    }
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+            </div>
+        </div>
+    </div>
+</div>
+

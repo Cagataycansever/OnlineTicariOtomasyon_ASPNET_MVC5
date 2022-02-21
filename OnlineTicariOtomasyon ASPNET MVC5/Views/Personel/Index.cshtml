@@ -1,0 +1,44 @@
+﻿@using TicariOtomasyon.Models.Siniflar
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="mb-0" style="font-weight:bold;text-align:center;">PERSONEL LİSTESİ </p>
+    </div>
+</div>
+
+<table class="table table-condensed table-hover" style="margin-top:30px;">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">GÖRSEL</th>
+            <th scope="col">PERSONEL ADI</th>
+            <th scope="col">PERSONEL SOYADI</th>
+            <th scope="col">DEPARTMAN</th>
+            <th scope="col">GÜNCELLE</th>
+            <th scope="col">SATIŞLAR</th>
+        </tr>
+    </thead>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <th scope="row">@k.PersonelId</th>
+            <td><img src="@k.PersonelGorsel" style="height:50px; width:50px; border-radius: 100%;"/></td>
+            <td>@k.PersonelAd</td>
+            <td>@k.PersonelSoyad</td>            
+            <td>@k.Departman.DepartmanAdi</td>
+            <td><a href="/Personel/PersonelGetir/@k.PersonelId" class="btn btn-outline-success"><i class="fas fa-sync"></i></a></td>
+            <td><a href="/Departman/DepartmanPersonelSatis/@k.PersonelId" class="btn btn-outline-blueviolet"><i class="fas fa-money-bill-wave"></i></a></td>
+        </tr>
+
+    }
+
+</table>
+
+<a href="/Personel/PersonelEkle" class="btn btn-outline-info">Yeni Personel Ekle</a>
+
